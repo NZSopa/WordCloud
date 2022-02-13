@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import AppShell from './AppShell';
 import Home from './Home';
 import Text from './Texts';
 import Words from './Words';
+import Detail from './Detail';
 
 class App extends Component {
     render() {
@@ -11,11 +12,10 @@ class App extends Component {
             <Router>
                 <AppShell >
                     <div>
-                        <Routes>
-                            <Route exact path='/' element={<Home />} />
-                            <Route exact path='/Texts' element={<Text />} />
-                            <Route exact path='/Words' element={<Words />} />
-                        </Routes>
+                        <Route exact path='/' component={Home} />
+                        <Route exact path='/Texts' component={Text} />
+                        <Route exact path='/Words' component={Words} />
+                        <Route exact path='/Detail/:textID' component={Detail} />
                     </div>
                 </AppShell>
             </Router>

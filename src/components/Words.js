@@ -41,7 +41,7 @@ class Words extends React.Component {
                 throw new Error(res.statusText);
             }
             return res.json();
-        }).then(_words => this.setState({ words: _words }));
+        }).then(_words => this.setState({ words: (_words == null) ? {} : _words }));
     }
     _post(word) {
         //Rest API 이용 Server의 Database 에 추가
@@ -84,7 +84,9 @@ class Words extends React.Component {
         this._get();
     }
     handleDialogToggle = () => this.setState({
-        dialog: !this.state.dialog
+        dialog: !this.state.dialog,
+        word: '',
+        weight: ''
     })
     handleValueChange = (e) => {
         let nextState = {};
